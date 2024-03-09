@@ -23,13 +23,11 @@ class FileReader:
             self.checked_files_number += 1
             if os.path.isdir(file):  # if file is a directory check inside
                 self.count_files(start_from="".join(file + "/"))
-        return self.parameters  # i will think about it latter
+        return self.parameters
 
-    def move_files(self, start_from: str, destination: str, parameters: list[str] = None) -> None:
-        # if not parameters:
-        #     self.parameters = parameters
+    def move_files(self, start_from: str, destination: str) -> None:
         self.count_files(start_from=start_from)
-        if input(f'{self.parameters_count_all} files to move from {start_from} to {destination}\nare you sure you want to continue? (Y/n)') in ['y', '\n']:
+        if input(f'{self.parameters_count_all} files to move from {start_from} to {destination}\nare you sure you want to continue? (Y/n)') in ['y', 'Y', '\n']:
             for file in self.checked_files_list:
                 print(f'Moving {file} to {destination}')
                 shutil.move(file, destination)

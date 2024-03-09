@@ -9,5 +9,6 @@ mylist = search.count_files(start_from=input("ENTER THE START :(don't enter ~ fo
 for key in mylist:
     print(key, mylist[key])
 
+# print(search.checked_files_list)
+print('searched files :  ', search.checked_files_number)
 print(search.checked_files_list)
-print(search.checked_files_number)
